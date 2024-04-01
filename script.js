@@ -8,6 +8,11 @@ document.getElementById('task-form').addEventListener('submit', function(e) {
     }
 });
 
+document.getElementById('task-filter').addEventListener('change', function() {
+    var filterValue = this.value;
+    filterTasks(filterValue);
+});
+
 function addTask(taskText) {
     var taskList = document.getElementById('task-list');
     var li = document.createElement('li');
@@ -23,7 +28,30 @@ function addTask(taskText) {
             span.classList.remove('task-completed');
         }
     });
+    var deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.addEventListener('click', function() {
+        li.remove();
+    });
     li.appendChild(checkbox);
     li.appendChild(span);
+    li.appendChild(deleteButton);
     taskList.appendChild(li);
+}
+
+function filterTasks(filterValue) {
+    var taskListItems = document.querySelectorAll('#task-list li');
+    taskListItems.forEach(function(task) {
+        var completed = task.querySelector('.task-completed') !== null;
+        switch (filterValue) {
+            case 'completed':
+                task.style.display = completed ? 'block' : 'none';
+                break;
+            case 'incomplete':
+                task.style.display = completed ? 'none' : 'block';
+                break;
+            default:
+                task.style.display = 'block';
+        }
+    });
 }

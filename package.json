@@ -1,0 +1,20 @@
+{
+  "name": "web-application_task",
+  "version": "1.0.0",
+  "description": "web-application",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node script.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simplykevine/web-application_task.git"
+  },
+  "author": "simplykevine",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/simplykevine/web-application_task/issues"
+  },
+  "homepage": "https://github.com/simplykevine/web-application_task#readme"
+}
